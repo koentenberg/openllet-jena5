@@ -25,7 +25,7 @@ import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.sparql.engine.binding.Binding;
-import org.apache.jena.sparql.engine.binding.BindingUtils;
+import org.apache.jena.sparql.engine.binding.BindingLib;
 
 import openllet.atom.OpenError;
 import openllet.core.utils.ATermUtils;
@@ -162,7 +162,7 @@ public class TableResult2XML
 						@Override
 						public Binding nextBinding()
 						{
-							return BindingUtils.asBinding(nextSolution());
+							return BindingLib.asBinding(nextSolution());
 						}
 
 						@Override

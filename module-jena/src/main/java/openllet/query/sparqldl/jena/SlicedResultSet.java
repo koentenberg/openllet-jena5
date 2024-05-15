@@ -23,7 +23,7 @@ import org.apache.jena.sparql.engine.binding.Binding;
  *
  * @author Evren Sirin
  */
-public class SlicedResultSet implements ResultSet
+public class SlicedResultSet extends ResultSetImpl implements ResultSet
 {
 	private final ResultSet _results;
 	private int _row;
@@ -116,5 +116,10 @@ public class SlicedResultSet implements ResultSet
 	public Model getResourceModel()
 	{
 		return null;
+	}
+
+	@Override
+	public void close() {
+		_results.close();
 	}
 }

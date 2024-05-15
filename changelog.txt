@@ -12,3 +12,29 @@ for query results in XML format. Using ResultSetMgr.readBoolean instead.
 
 - openllet.test.query.TableResult2XML
 org.apache.jena.sparql.engine.binding.BindingUtils no more exists. It was already deprecated, Use BindingLib instead
+
+Updating to jena 4.10
+
+- openllet.jena.PelletReasoner
+org.apache.jena.reasoner.BaseInfGraph.InfFindSafeCapabilities no more exists.
+InfFindSafeCapabilities in jena 4.2 extends AllCapabilities but overriding to
+false sizeAccurate. Thus, InfFindSafeCapability instantiation has been replaced
+with capabilities created by AllCapabilities.create factory method, with
+sizeAccurate=false.
+
+- openllet.query.sparqldl.jena.SparqlDLResultSet
+Implemented forEachRemaining and provided empty implementation of close.
+
+- openllet.query.sparqldl.jena.SortedResultSet
+Implemented forEachRemaining and provided empty implementation of close.
+
+- openllet.query.sparqldl.jena.SlicedResultSet
+Implemented forEachRemaining and close.
+
+- openllet.test.query.SparqlDLDawgTester.DifferenceResultSet
+Implemented forEachRemaining and provided empty implementation of close.
+
+- openllet.query.sparqldl.jena.SparqlDLExecution
+Implemented the new method getQueryString. From the documentation of this: If {@code getQuery()} is not null, this is a corresponding string that parses to the same query.
+Provided an implementation for Template.subst by copy and paste from the Template class in Jena 4.2.
+

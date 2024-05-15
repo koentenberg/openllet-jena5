@@ -39,7 +39,7 @@ import openllet.query.sparqldl.model.ResultBinding;
  * @author Petr Kremen
  * @author Evren Sirin
  */
-public class SparqlDLResultSet implements ResultSetRewindable
+public class SparqlDLResultSet extends ResultSetImpl implements ResultSetRewindable
 {
 	private final Model _model;
 	private final List<ATermAppl> _resultVars;

@@ -34,12 +34,12 @@ import java.util.logging.Logger;
 
 import org.apache.jena.graph.Capabilities;
 import org.apache.jena.graph.Graph;
+import org.apache.jena.graph.impl.AllCapabilities;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.reasoner.BaseInfGraph.InfFindSafeCapabilities;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerException;
 import org.apache.jena.vocabulary.ReasonerVocabulary;
@@ -83,7 +83,7 @@ public class PelletReasoner implements Reasoner
 		_schema = schema;
 		_reasonerCapabilities = reasonerCapabilities;
 
-		_graphCapabilities = new InfFindSafeCapabilities();
+		_graphCapabilities = AllCapabilities.create(false, true, true, true);
 	}
 
 	public Graph getSchema()

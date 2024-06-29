@@ -12,3 +12,10 @@ for query results in XML format. Using ResultSetMgr.readBoolean instead.
 
 - openllet.test.query.TableResult2XML
 org.apache.jena.sparql.engine.binding.BindingUtils no more exists. It was already deprecated, Use BindingLib instead
+
+- openllet.jena.PelletReasoner
+org.apache.jena.reasoner.BaseInfGraph.InfFindSafeCapabilities no more exists.
+InfFindSafeCapabilities in jena 4.2 extends AllCapabilities but overriding to
+false sizeAccurate. Thus, InfFindSafeCapability instantiation has been replaced
+with capabilities created by AllCapabilities.create factory method, with
+sizeAccurate=false.

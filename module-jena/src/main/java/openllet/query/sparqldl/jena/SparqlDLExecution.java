@@ -404,6 +404,11 @@ class SparqlDLExecution implements QueryExecution
 		return _query;
 	}
 
+	@Override
+	public String getQueryString() {
+		return _query.toString();
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */

@@ -18,9 +18,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import openllet.query.sparqldl.jena.ResultSetImpl;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.QuerySolutionMap;
-import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -130,7 +130,7 @@ public class TableResult2XML
 
 				try (final var out = new FileOutputStream(arg + ".srx"))
 				{
-					ResultSetFormatter.outputAsXML(out, new ResultSet()
+					ResultSetFormatter.outputAsXML(out, new ResultSetImpl()
 					{
 
 						private int index = 0;

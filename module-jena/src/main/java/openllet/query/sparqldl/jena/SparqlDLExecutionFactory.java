@@ -12,14 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.jena.graph.Graph;
-import org.apache.jena.query.ARQ;
-import org.apache.jena.query.Dataset;
-import org.apache.jena.query.DatasetFactory;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryException;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 
 import openllet.core.KnowledgeBase;
@@ -155,6 +148,7 @@ public class SparqlDLExecutionFactory
 	@SuppressWarnings("resource")
 	public static QueryExecution create(final Query query, final Dataset dataset, final QuerySolution initialBinding, final QueryEngineType queryEngineType, final boolean handleVariableSPO) throws QueryException
 	{
+		QueryExecutionDatasetBuilder queryExecutionDatasetBuilder = QueryExecutionDatasetBuilder.create();
 		// the engine we will return
 		QueryExecution queryExec = null;
 
@@ -176,9 +170,11 @@ public class SparqlDLExecutionFactory
 				throw new AssertionError();
 		}
 
+		// TODO: Fix for Fuseki 5.x
 		// if given set the initial binding
-		if (initialBinding != null)
-			queryExec.setInitialBinding(initialBinding);
+		//if (initialBinding != null)
+
+			//queryExec.setInitialBinding(initialBinding);
 
 		// return it
 		return queryExec;

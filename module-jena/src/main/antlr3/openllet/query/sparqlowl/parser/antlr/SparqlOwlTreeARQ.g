@@ -25,7 +25,7 @@ import org.apache.jena.datatypes.TypeMapper;
 import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
-import org.apache.jena.graph.Triple;
+//import org.apache.jena.graph.Triple;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryParseException;
 import org.apache.jena.rdf.model.AnonId;
@@ -77,6 +77,7 @@ import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import openllet.jena.vocabulary.OWL2;
+import openllet.jena.graph.Triple;
 
 
 import static openllet.query.sparqlowl.parser.ParserUtilities.dropFirstAndLast;
@@ -87,7 +88,8 @@ import static openllet.query.sparqlowl.parser.arq.ARQParserUtilities.isOWL2Datat
 import static openllet.query.sparqlowl.parser.arq.ARQParserUtilities.listToTriples;
 import static openllet.query.sparqlowl.parser.arq.ARQParserUtilities.XSD_BOOLEAN_FALSE;
 import static openllet.query.sparqlowl.parser.arq.ARQParserUtilities.XSD_BOOLEAN_TRUE;
-import static org.apache.jena.sparql.util.ExprUtils.nodeToExpr;
+import static org.apache.jena.sparql.expr.ExprLib.nodeToExpr;
+//import static org.apache.jena.sparql.util.ExprUtils.nodeToExpr;
 }
 
 @members{
@@ -1383,7 +1385,7 @@ rdfLiteral
 	:	^(LITERAL_PLAIN string)
 		{ $l = NodeFactory.createLiteral( $string.s ); }
 	| ^(LITERAL_LANG string lang=LANGTAG)
-		{ $l = NodeFactory.createLiteral( $string.s, $lang.text, false ); }
+		{ $l = NodeFactory.createLiteral( $string.s, $lang.text ); }
 	|	^(LITERAL_TYPED string iriRef)
 		{
 			RDFDatatype dType = TypeMapper.getInstance().getSafeTypeByName( $iriRef.i.getURI() );

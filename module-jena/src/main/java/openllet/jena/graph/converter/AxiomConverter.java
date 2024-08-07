@@ -159,7 +159,7 @@ public class AxiomConverter
 																												node = NodeFactory.createBlankNode();
 																											else
 																												if (ATermUtils.isBnode(name))
-																													node = NodeFactory.createBlankNode(new BlankNodeId(((ATermAppl) name.getArgument(0)).getName()));
+																													node = NodeFactory.createBlankNode(((ATermAppl) name.getArgument(0)).getName());
 																												else
 																													node = NodeFactory.createURI(name.getName());
 
